@@ -297,6 +297,7 @@ export default {
         loader: true,
       }).then((dialog) => {
         setTimeout(() => {
+
           this.$notify({type: 'success', text: trans('messages.loading_completed')});
           dialog.close();
         }, 2500);
@@ -314,6 +315,7 @@ export default {
         reverse: true,
       }).then((dialog) => {
         setTimeout(() => {
+
           this.$notify({type: 'success', text: trans('messages.loading_completed')});
           dialog.close();
         }, 2500);
@@ -325,7 +327,6 @@ export default {
     clickOkHandler(dialog) {
       console.log('Dialog: ', dialog);
       dialog.loading && dialog.close();
-      this.$notify({type: 'success', text: trans('messages.click_continue')});
     },
     clickCancelHandler() {
       this.$notify({type: 'error', text: trans('messages.click_cancel')});

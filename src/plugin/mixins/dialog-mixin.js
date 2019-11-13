@@ -56,35 +56,40 @@ export default {
   },
   methods: {
     clickRightBtn() {
-      this.options.reverse ? this.cancel() : this.proceed(this.getDefaultData());
+      this.options.reverse ? this.cancel() : this.mix_dialog_proceed(
+        this.getDefaultData());
     },
     clickLeftBtn() {
-      this.options.reverse ? this.proceed(this.getDefaultData()) : this.cancel();
+      this.options.reverse
+        ? this.mix_dialog_proceed(this.getDefaultData())
+        : this.cancel();
     },
     submitDialogForm() {
-      this.okBtnDisabled || this.proceed(this.getDefaultData());
+      this.okBtnDisabled || this.mix_dialog_proceed(this.getDefaultData());
     },
     getDefaultData() {
+
       return this.isPrompt ? this.input : null;
     },
-    proceed(withData = null) {
+    mix_dialog_proceed(withData = null) {
       if (this.loaderEnabled) {
         this.switchLoadingState(true);
         this.options.promiseResolver({
-          close: this.close,
+          close: this.mix_dialog_close,
           loading: this.switchLoadingState,
           data: withData,
         });
       } else {
         this.options.promiseResolver({
           data: withData,
+          close: this.mix_dialog_close,
         });
-        this.close();
+        this.mix_dialog_close();
       }
     },
     cancel() {
       if (this.loading === true) { return; }
-      this.close();
+      this.mix_dialog_close();
     },
     switchLoadingState(loading = null) {
       if (loading === null) {
@@ -93,8 +98,8 @@ export default {
 
       this.loading = !!loading;
     },
-    close() {
-      this.$emit('close');
+    mix_dialog_close() {
+      this.$emit('close', this.options.id);
     },
   },
   mixins: [MessageMixin, ButtonMixin],

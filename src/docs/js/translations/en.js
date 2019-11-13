@@ -9,7 +9,7 @@ export default {
       submit: 'submit',
       reset: 'Reset',
       continue: 'continue',
-      proceed: 'continue',
+      mix_dialog_proceed: 'continue',
       dismiss: 'dismiss',
       source_code: 'Source Code',
     },

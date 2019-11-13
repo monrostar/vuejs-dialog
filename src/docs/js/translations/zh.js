@@ -9,7 +9,7 @@ export default {
       submit: '提交',
       reset: '重启',
       continue: '继续',
-      proceed: '继续',
+      mix_dialog_proceed: '继续',
       dismiss: '解雇',
       source_code: '源代码',
     },

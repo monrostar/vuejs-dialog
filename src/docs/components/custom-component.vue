@@ -29,7 +29,7 @@ export default {
   mixins: [DialogMixin],
   methods: {
     handleShare(platform) {
-      this.proceed(platform);
+      this.mix_dialog_proceed(platform);
     },
     handleDismiss() {
       this.cancel();

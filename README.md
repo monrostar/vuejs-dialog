@@ -136,7 +136,7 @@ Vue.dialog.alert('Request completed!').then(function(dialog) {
 Vue.dialog
   .confirm('Please confirm to continue')
   .then(function(dialog) {
-    console.log('Clicked on proceed');
+    console.log(mix_dialog_proceed);
   })
   .catch(function() {
     console.log('Clicked on cancel');
@@ -450,7 +450,7 @@ export default {
   mixins: [DialogMixin],
   methods: {
     handleShare(platform) {
-      this.proceed(platform); // included in DialogMixin
+      this.mix_dialog_proceed(platform); // included in DialogMixin
     },
     handleDismiss() {
       this.cancel(); // included in DialogMixin

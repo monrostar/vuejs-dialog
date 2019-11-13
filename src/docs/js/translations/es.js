@@ -9,7 +9,7 @@ export default {
       submit: 'enviar',
       reset: 'Reiniciar',
       continue: 'continuar',
-      proceed: 'proceder',
+      mix_dialog_proceed: 'proceder',
       dismiss: 'despedir',
       source_code: 'Código fuente',
     },
@@ -20,7 +20,7 @@ export default {
     },
     descriptions: {
       confirmation_types: {
-        1: 'Sometimes, you may want to be more strict by making sure a user really wants to proceed.',
+        1: 'Sometimes, you may want to be more strict by making sure a user really wants to mix_dialog_proceed.',
         2: 'The SOFT and HARD confirmation dialogs helps with that.',
       },
     },

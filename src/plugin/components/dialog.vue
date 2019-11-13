@@ -1,13 +1,14 @@
 <template>
-  <div>
+  <section>
     <dialog-window v-for="dialog in dialogsARR"
       :options="dialog"
       :key="dialog.id"
+      :ref="dialog.id"
       :escapeKeyClose="dialog.escapeKeyClose"
       :registeredViews="registeredViews"
       @close="destroyDialog">
     </dialog-window>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -26,24 +27,6 @@ export default {
   },
   destroyed() {
     document.removeEventListener('keydown', this.escapeKeyListener);
-  },
-  watch: {
-    'dialogsARR': {
-      handler(dialogs) {
-        let clsName = 'dg-open';
-        const body = document.getElementsByTagName('body')[0];
-
-        if (!body) {
-          return;
-        }
-
-        if (dialogs.length && !body.classList.contains(clsName)) {
-          body.classList.add(clsName);
-        } else if (!dialogs.length && body && body.classList.contains(clsName)) {
-          body.classList.remove(clsName);
-        }
-      },
-    },
   },
   methods: {
     commit(data) {

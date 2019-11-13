@@ -73,7 +73,7 @@ export default {
   watch: {
     'escapeKeyClose': function(val) {
       if (val === true) {
-        this.cancelBtnDisabled ? this.proceed() : this.cancel();
+        this.cancelBtnDisabled ? this.mix_dialog_proceed() : this.cancel();
       }
     },
   },
@@ -87,12 +87,6 @@ export default {
     loaderEnabled() {
       return !!this.options.loader;
     },
-    dialogView() {
-      const customView = this.options.view
-        ? this.registeredViews[this.options.view]
-        : null;
-      return customView || DefaultView;
-    },
     isHardConfirm() {
       return this.options.window === DIALOG_TYPES.CONFIRM &&
         this.options.type === CONFIRM_TYPES.HARD;
@@ -104,19 +98,7 @@ export default {
   methods: {
     closeAtOutsideClick() {
       if (this.options.backdropClose === true) {
-        this.cancelBtnDisabled ? this.proceed() : this.cancel();
-      }
-    },
-    proceed() {
-      if (this.loaderEnabled) {
-        this.switchLoadingState(true);
-        this.options.promiseResolver({
-          close: this.close,
-          loading: this.switchLoadingState,
-        });
-      } else {
-        this.options.promiseResolver(true);
-        this.close();
+        this.cancelBtnDisabled ? this.mix_dialog_proceed() : this.cancel();
       }
     },
     cancel() {
@@ -128,6 +110,7 @@ export default {
     close() {
       this.show = false;
       this.closed = true;
+      this.mix_dialog_close();
     },
     animationEnded(type) {
       this.endedAnimations.push(type);
@@ -136,13 +119,13 @@ export default {
         && this.endedAnimations.indexOf('content') !== -1
       ) {
         this.options.promiseRejecter(false);
-        this.$emit('close', this.options.id);
+        this.mix_dialog_close();
       }
     },
   },
   beforeDestroy() {
     if (this.closed === false) {
-      this.cancelBtnDisabled ? this.proceed() : this.cancel();
+      this.cancelBtnDisabled ? this.mix_dialog_proceed() : this.cancel();
     }
   },
 };
