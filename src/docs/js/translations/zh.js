@@ -11,7 +11,7 @@ export default {
       continue: '继续',
       proceed: '继续',
       dismiss: '解雇',
-      source_code: '源代码'
+      source_code: '源代码',
     },
     titles: {
       method_usage: '用法作为一种方法',
@@ -21,7 +21,7 @@ export default {
     descriptions: {
       confirmation_types: {
         1: '有时，您可能希望通过确保用户真正想要继续进行更严格',
-        2: '柔软和硬确认对话框有助于此。'
+        2: '柔软和硬确认对话框有助于此。',
       },
     },
     examples: {
@@ -34,18 +34,18 @@ export default {
         6: '淡化对话框 - 动画',
         7: '反弹对话框 - 动画',
         8: '单击外部对话框时关闭',
-        9: '提示 - 收集输入'
+        9: '提示 - 收集输入',
       },
       directive_usage: {
         1: '给它一个字符串',
         2: '转到example.com',
-        3: '给它一个对象'
+        3: '给它一个对象',
       },
       confirmation_types: {
         1: '软确认 - 需要多次点击',
-        2: '硬确认 - 需要验证文本'
-      }
-    }
+        2: '硬确认 - 需要验证文本',
+      },
+    },
   },
 
   messages: {
@@ -66,9 +66,9 @@ export default {
     directive_link: '这将带你到 "http://example.com". 请谨慎行事',
     form_reset: '更改将被丢弃。 重设此表格？',
     form_submit: '提交此表格？',
-    empty_name: '名称字段为空'
+    empty_name: '名称字段为空',
   },
   placeholders: {
-    your_name: '你的名字'
-  }
-}
+    your_name: '你的名字',
+  },
+};

@@ -1,4 +1,3 @@
-
 .fadeTr-enter-active {
   -webkit-transition: opacity 0.3s ease-in;
   transition: opacity 0.3s ease-in;
@@ -396,9 +395,6 @@ body.dg-open {
   background-color: #fefefe;
   border-color: #0096D9;
 }
-.dg-pull-right {
-  float: right;
-}
 .dg-btn.dg-btn--loading .dg-btn-content {
   visibility: hidden;
 }
@@ -444,8 +440,7 @@ body.dg-open {
   border-bottom: 1px solid #FF8C00;
 }
 
-
-button[data-v-22b69440] {
+button[data-v-28158732] {
   width: 100%;
   margin-bottom: 10px;
   float: none;

@@ -1,58 +1,48 @@
 <template>
-    <div class="dg-view-wrapper">
-        <div :class="['dg-content-body', {'dg-content-body--has-title': messageHasTitle}]">
-            <template v-if="messageHasTitle">
-                <h6 v-if="options.html" class="dg-title" v-html="messageTitle"></h6>
-                <h6 v-else="" class="dg-title">{{ messageTitle }}</h6>
-            </template>
+  <el-dialog
+    :visible.sync="show"
+    width="30%"
+    center
+    @close="closeAtOutsideClick"
+  >
+    <template #title v-if="messageHasTitle">-->
+      <h6 v-if="options.html" v-html="messageTitle"></h6>
+      <h6 v-else>{{ messageTitle }}</h6>
+    </template>
 
-            <div v-if="options.html" class="dg-content" v-html="messageBody"></div>
-            <div v-else="" class="dg-content">{{ messageBody }}</div>
+    <!-- Start Body container -->
+    <section>
+      <div v-if="options.html" v-html="messageBody"></div>
+      <div v-else>{{ messageBody }}</div>
+    </section>
+    <!-- End Body container -->
 
-            <form v-if="isHardConfirm || isPrompt"
-                  class="dg-form"
-                  autocomplete="off"
-                  @submit.prevent="submitDialogForm"
-            >
-                <label for="dg-input-elem" style="font-size: 13px">{{ isPrompt ? promptHelpText : hardConfirmHelpText }}</label>
-                <input type="text" 
-                        :placeholder="isPrompt ? '' : options.verification"
-                        v-model="input"
-                        autocomplete="off"
-                        id="dg-input-elem"
-                        ref="inputElem"
-                        style="width: 100%;margin-top: 10px;
-                            padding: 5px 15px; font-size: 16px;
-                            border-radius: 4px; border: 2px solid #eee"
-                />
-            </form>
-        </div>
+    <template #footer>
+      <component @click="clickLeftBtn()" :is="leftBtnComponent" :loading="loading"
+        :enabled="leftBtnEnabled" :options="options" :focus="leftBtnFocus">
+        <span v-if="options.html" v-html="leftBtnText"></span>
+        <span v-else="">{{ leftBtnText }}</span>
+      </component>
 
-        <div class="dg-content-footer">
+      <component :is="rightBtnComponent" @click="clickRightBtn()" :loading="loading"
+        :enabled="rightBtnEnabled" :options="options" :focus="rightBtnFocus">
+        <span v-if="options.html" v-html="rightBtnText"></span>
+        <span v-else="">{{ rightBtnText }}</span>
+      </component>
+    </template>
 
-            <button @click="clickLeftBtn()" :is="leftBtnComponent" :loading="loading"
-                    :enabled="leftBtnEnabled" :options="options" :focus="leftBtnFocus">
-                <span v-if="options.html" v-html="leftBtnText"></span>
-                <span v-else="">{{ leftBtnText }}</span>
-            </button>
-
-            <button :is="rightBtnComponent" @click="clickRightBtn()" :loading="loading"
-                    :enabled="rightBtnEnabled" :options="options" :focus="rightBtnFocus">
-                <span v-if="options.html" v-html="rightBtnText"></span>
-                <span v-else="">{{ rightBtnText }}</span>
-            </button>
-
-            <div class="dg-clear"></div>
-        </div>
-    </div>
+  </el-dialog>
 </template>
 
 <script>
-import DialogMixin from "../../js/mixins/dialog-mixin";
-import OkBtn from '../../components/ok-btn.vue'
-import CancelBtn from '../../components/cancel-btn.vue'
+import CancelBtn from '../../components/cancel-btn.vue';
+import OkBtn from '../../components/ok-btn.vue';
+import DialogMixin from '../../mixins/dialog-mixin';
 
 export default {
+  props: {
+    show: Boolean,
+  },
   data: function() {
     return {};
   },
@@ -60,6 +50,6 @@ export default {
   mounted() {
     this.isHardConfirm && this.$refs.inputElem && this.$refs.inputElem.focus();
   },
-  components: { CancelBtn, OkBtn }
+  components: {CancelBtn, OkBtn},
 };
 </script>

@@ -1,7 +1,3 @@
 // -- Dialog styles
-
-@import 'shared/animations';
-@import 'shared/button-loader';
-
-@import 'default/layout';
-@import 'default/highlights';
+@import '~element-ui/packages/theme-chalk/src/dialog';
+@import '~element-ui/packages/theme-chalk/src/button';

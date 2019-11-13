@@ -11,7 +11,7 @@ export default {
       continue: 'continue',
       proceed: 'continue',
       dismiss: 'dismiss',
-      source_code: 'Source Code'
+      source_code: 'Source Code',
     },
     titles: {
       method_usage: 'Usage as a method',
@@ -21,7 +21,7 @@ export default {
     descriptions: {
       confirmation_types: {
         1: 'Sometimes, you may want to be more strict by making sure a user really wants to proceed.',
-        2: 'The SOFT and HARD confirmation dialogs helps with that.'
+        2: 'The SOFT and HARD confirmation dialogs helps with that.',
       },
     },
     examples: {
@@ -34,18 +34,18 @@ export default {
         6: 'Fade Dialog - Animation',
         7: 'Bounce Dialog - Animation',
         8: 'Close when clicking outside dialog',
-        9: 'Prompt - collect input'
+        9: 'Prompt - collect input',
       },
       directive_usage: {
         1: 'Give it a string',
         2: 'Go to example.com',
-        3: 'Give it an object v-confirm="messageAndCallback"'
+        3: 'Give it an object v-confirm="messageAndCallback"',
       },
       confirmation_types: {
         1: 'Soft confirm - multiple clicks required',
-        2: 'Hard confirm - verification text required'
-      }
-    }
+        2: 'Hard confirm - verification text required',
+      },
+    },
   },
 
   messages: {
@@ -66,9 +66,9 @@ export default {
     directive_link: 'This will take you to "http://example.com". Proceed with caution',
     form_reset: 'Changes would be discarded. Reset this form?',
     form_submit: 'Submit this form?',
-    empty_name: 'The name field is empty'
+    empty_name: 'The name field is empty',
   },
   placeholders: {
-    your_name: 'Your name'
-  }
-}
+    your_name: 'Your name',
+  },
+};

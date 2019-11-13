@@ -3,8 +3,10 @@
  */
 
 export function getElem(selector, all = false) {
-    return all ? document.querySelectorAll(selector) : document.querySelector(selector)
+  return all ? document.querySelectorAll(selector) : document.querySelector(
+    selector);
 }
+
 export function nodeLength(selector) {
-    return getElem(selector, true).length
+  return getElem(selector, true).length;
 }

@@ -1,5 +1,7 @@
-$page-width-max: 1200px;
+@import '~element-ui/packages/theme-chalk/src/dialog';
+@import '~element-ui/packages/theme-chalk/src/button';
 
+$page-width-max: 1200px;
 
 /* reset */
 * {
@@ -112,7 +114,7 @@ header {
     color: #fefefe;
     text-decoration: none;
 
-    &:hover{
+    &:hover {
       text-decoration: underline;
     }
   }
@@ -179,7 +181,7 @@ footer {
   color: red;
 }
 
-.green  {
+.green {
   color: green;
 }
 
@@ -187,7 +189,7 @@ footer {
   color: white;
 }
 
-.bg-white{
+.bg-white {
   background: white;
 }
 
